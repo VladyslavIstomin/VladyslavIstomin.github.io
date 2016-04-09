@@ -1,0 +1,35 @@
+<div class="row">
+	<div class="col-md-12">
+		<h1 class="text-center title">Pokedex</h1>
+	</div>
+</div>
+<div class="row" ng-controller="controllerPokedex">
+	<div class="col-md-12 loading" ng-show="isLoading">
+		<h2>Please wait, page is loading ...</h2>
+	</div>
+	<div class="col-md-8 col-sm-8 col-xs-8">
+		<div class="row">
+			<div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="pokemon in pokemonList">
+				<figure class="text-center item" ng-click="showItem($index)">
+					<img ng-src="http://pokeapi.co/media/img/{{pokemon.pkdx_id}}.png" alt="Pokemon" width="120"
+					     height="120">
+					<figcaption>
+						<strong>{{pokemon.name}}</strong>
+					</figcaption>
+					<div class="text-left">
+					<span ng-repeat="type in pokemon.types" ng-class="type.name">
+						{{type.name}}
+					</span>
+					</div>
+				</figure>
+			</div>
+		</div>
+
+		<button type="button" class="btn btn-primary btn-lg btn-block button" ng-click="addPokemons()" ng-hide="isHideBtn">
+			Load more
+			<span class="glyphicon glyphicon-refresh" ng-hide="isHideIcon"></span>
+		</button>
+	</div>
+	<div ng-include="'app/pokemon-list/pokemon.detail.html'"></div>
+</div>
+
