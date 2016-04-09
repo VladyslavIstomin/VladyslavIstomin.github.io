@@ -1,7 +1,8 @@
 ### Application Pokedex
 
+To start the application you should click on url: http://vladyslavistomin.github.io/
 
-To start the application you should:
+Or should:
 
 - Clone repository to own folder, run command
 ```sh
